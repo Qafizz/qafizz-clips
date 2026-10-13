@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connecting to TikTok</title><link rel="stylesheet" href="style.css"></head>
+<body><main><h1>Connecting…</h1><p class="muted" id="msg">Handing the TikTok sign-in back to the Qafizz Clips tool on this computer.</p>
+<script>
+// TikTok redirects here (it requires an https redirect). Pass the one-time code straight on to the
+// local tool listening on this computer; nothing is stored or sent anywhere else.
+var q = location.search;
+if (q.indexOf("code=") > -1 || q.indexOf("error=") > -1) {
+  location.replace("http://localhost:8790/callback" + q);
+} else {
+  document.getElementById("msg").textContent = "Nothing to do here - start the sign-in from the Qafizz Clips tool.";
+}
+</script></main></body></html>
